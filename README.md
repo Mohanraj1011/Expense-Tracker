@@ -29,7 +29,6 @@ The Personal Expense Tracker and Financial Assistant is a comprehensive web appl
 - **Backend**: Python with Flask framework for handling HTTP requests, integrating machine learning models for expense prediction.
 - **Database**: SQLite database managed using SQLAlchemy for storing user information, expenses, and financial goals.
 - **Frontend**: HTML, CSS, and JavaScript for user interface design, integrating with Bootstrap for responsive layouts.
-- **Machine Learning**: Utilizes scikit-learn for training and deploying machine learning models, such as linear regression for expense prediction.
 - **AI Chatbot**: Integrates with Dialogflow for natural language processing (NLP) and understanding user queries related to personal finance.
 
 **Dataset**
