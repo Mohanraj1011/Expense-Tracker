@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Goal Setting</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .mt-5 {
+            margin-top: 3rem !important; /* Bootstrap utility class for margin-top */
+        }
+        .card {
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .card-text {
+            margin-bottom: 0.25rem;
+        }
+        hr {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            border: none;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Financial Goal Setting</h2>
+        <form id="goalForm">
+            <div class="form-group">
+                <label for="description">Goal Description:</label>
+                <input type="text" class="form-control" id="description" name="description" required>
+            </div>
+            <div class="form-group">
+                <label for="amount">Goal Amount:</label>
+                <input type="number" class="form-control" id="amount" name="amount" min="0" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="target_date">Target Date:</label>
+                <input type="date" class="form-control" id="target_date" name="target_date" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Set Goal</button>
+        </form>
+
+        <hr>
+
+        <div id="goalList">
+            <!-- Goals will be dynamically added here -->
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Fetch all goals on page load
+            $.get('/get_goals', function(goals) {
+                goals.forEach(function(goal) {
+                    $('#goalList').append(`
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h5 class="card-title">${goal.description}</h5>
+                                <p class="card-text">Amount: ${goal.amount}</p>
+                                <p class="card-text">Target Date: ${goal.target_date}</p>
+                            </div>
+                        </div>
+                    `);
+                });
+            });
+
+            // Handle goal form submission
+            $('#goalForm').submit(function(event) {
+                event.preventDefault();
+                $.post('/set_goal', $(this).serialize(), function(response) {
+                    alert(response.message);
+                    location.reload(); // Refresh page after setting goal
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Expenses</title>
+    <!-- Include your preferred charting library, e.g., Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Monthly Expenses for {{ current_year }}</h2>
+        <canvas id="expenseChart"></canvas>
+    </div>
+
+    <script>
+        const data = {{ data|tojson }};
+        const ctx = document.getElementById('expenseChart').getContext('2d');
+        const expenseChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: data.labels,
+                datasets: [{
+                    label: 'Expenses',
+                    data: data.values,
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+           // Function to generate random colors for each dataset item
+           function generateColors(numColors) {
+            var colors = [];
+            for (var i = 0; i < numColors; i++) {
+                var color = 'rgba(' + randomRGB() + ', ' + randomRGB() + ', ' + randomRGB() + ', 0.2)';
+                colors.push(color);
+            }
+            return colors;
+        }
+
+        // Function to generate random RGB values
+        function randomRGB() {
+            return Math.floor(Math.random() * 256);
+        }
+    </script>
+</body>
+</html>
