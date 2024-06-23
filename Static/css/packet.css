@@ -1,0 +1,110 @@
+/* Reset default margin and padding */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Global container */
+.container {
+    max-width: 1200px;
+    margin: 20px auto; /* Center align the container */
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Card styles */
+.card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.card-header {
+    background-color: black;
+    color: #fff;
+    padding: 10px;
+    border-top-left-radius: 8px; /* Adjust based on card border radius */
+    border-top-right-radius: 8px; /* Adjust based on card border radius */
+    text-align: center; /* Center align text */
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* Flex container for tables */
+.table-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Space between the tables */
+}
+
+/* Table section styles */
+.table-section {
+    flex: 1; /* Adjust width dynamically */
+}
+
+.table-section h3 {
+    text-align: center;
+    margin-bottom: 10px; /* Slightly reduced margin for better spacing */
+}
+
+/* Table styles */
+.table {
+    width: 100%; /* Full width within the table section */
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.table th, .table td {
+    padding: 12px; /* Increased padding for better readability */
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #f2f2f2;
+}
+
+.table tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Center align headings */
+h3 {
+    text-align: center;
+}
+
+form {
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+form button {
+    padding: 12px 20px;
+    background-color: black;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    
+}
+
+form button:hover {
+    background-color: #333;
+}

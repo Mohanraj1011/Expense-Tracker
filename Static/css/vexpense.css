@@ -1,0 +1,66 @@
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+  }
+  
+  h2{
+  
+    padding: 5px;
+  }
+
+  th{
+    color: brown;
+  }
+  
+  .card-header {
+    background-color: #000204;
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+    border-radius: 10px 10px 0 0; /* Rounded top corners */
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .table {
+    margin-bottom: 0;
+    border-collapse: collapse; /* Ensure cells have shared borders */
+    width: 100%;
+  }
+  
+  .table th, .table td {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid black; /* Default border style for cells */
+    
+  }
+  
+  .table th{
+  
+    font-size: x-large;
+  }
+  
+  /* Specific border styles for table headers */
+  .table th:nth-child(1), .table td:nth-child(1) {
+    border-left: 2px solid #0c0c0c; /* Blue border for first column */
+  }
+  
+  .table th:nth-child(2), .table td:nth-child(2) {
+    border-left: 2px solid #070707; /* Green border for second column */
+  }
+  
+  .table th:nth-child(3), .table td:nth-child(3) {
+    border-left: 2px solid #040404; /* Red border for third column */
+  }
+  
+  .table th:nth-child(4), .table td:nth-child(4) {
+    border-left: 2px solid #101010; /* Yellow border for fourth column */
+  }
+  
+  .table th:last-child, .table td:last-child {
+    border-right: 2px solid #010101; /* Blue border for last column */
+  }
+  

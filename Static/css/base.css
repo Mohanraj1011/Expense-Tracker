@@ -1,0 +1,10 @@
+.Home{
+
+    text-align: center;
+}
+
+body, nav, ul, li{
+
+    padding: 20px;
+    padding-bottom: 20px;
+}
