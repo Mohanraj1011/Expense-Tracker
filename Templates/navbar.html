@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General body and html styles */
+        body, html {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* Light gray background */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navigation bar styles */
+        .nav {
+            background-color: #343a40; /* Dark background color for the nav bar */
+            padding: 10px 0; /* Vertical padding */
+            margin-bottom: 20px; /* Space between nav bar and content */
+        }
+
+        .nav-item {
+            margin-right: 15px; /* Space between each nav item */
+        }
+
+        .nav-link {
+            color: #fff; /* White text color */
+            font-weight: bold;
+            transition: color 0.3s ease-in-out; /* Smooth transition for color change */
+        }
+
+        .nav-link:hover {
+            color: #007bff; /* Blue color on hover */
+            text-decoration: none; /* Remove underline */
+        }
+
+        .nav-link.active {
+            color: #ffc107; /* Yellow color for active link */
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+            <a class="nav-link active" href="{{ url_for('index') }}"><i class="fas fa-home"></i> Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('add_expense') }}"><i class="fas fa-plus"></i> Add Expense</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('view_expenses') }}"><i class="fas fa-list"></i> View Expenses</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('packet') }}"><i class="fas fa-briefcase"></i> Packet</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('report') }}"><i class="fas fa-chart-bar"></i> Report</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('predict_expense') }}"><i class="fas fa-bullseye"></i> Financial Goal Setting</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </li>
+    </ul>
+    {% block content %}{% endblock %}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
