@@ -71,6 +71,12 @@ This project not only facilitates expense management but also educates users abo
 <h2>Packet page</h2>
 <img src="screenshots\Packet.png">
 
+<h2>Report page</h2>
+<img src="screenshots\Report.png">
+
+<h2>Goal Setting page</h2>
+<img src="screenshots\Goal setting.png">
+
 <h2>Add Expense DB</h2>
 <img src="screenshots\Add Expense DB.png">
 
@@ -79,11 +85,5 @@ This project not only facilitates expense management but also educates users abo
 
 <h2>User id and Password DB</h2>
 <img src="screenshots\User id and Password DB.png">
-
-<h2>Report page</h2>
-<img src="screenshots\Report.png">
-
-<h2>Goal Setting page</h2>
-<img src="screenshots\Goal setting.png">
 
 
