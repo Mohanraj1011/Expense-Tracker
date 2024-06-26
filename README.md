@@ -84,6 +84,6 @@ This project not only facilitates expense management but also educates users abo
 <img src="screenshots\Goal setting DB.png">
 
 <h2>User id and Password DB</h2>
-<img src="screenshots\User id and Password DB.png">
+<img src="screenshots\User id and Password.png">
 
 
