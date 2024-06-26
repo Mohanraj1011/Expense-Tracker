@@ -1,66 +1,74 @@
 .card {
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 50px;
-  }
-  
-  h2{
-  
-    padding: 5px;
-  }
+  max-width: 600px; /* Set maximum width */
+  width: 80%; /* Set a percentage width for responsiveness */
+  margin: 50px auto; /* Center align and provide margin */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px; /* Adjust padding as needed */
+  min-width: 300px; /* Minimum width for the card */
+  background-color: #117cee; /* White background */
+}
 
-  th{
-    color: brown;
-  }
-  
-  .card-header {
-    background-color: #000204;
-    color: white;
-    text-align: center;
-    font-size: 1.5em;
-    border-radius: 10px 10px 0 0; /* Rounded top corners */
-  }
-  
-  .card-body {
-    padding: 20px;
-  }
-  
-  .table {
-    margin-bottom: 0;
-    border-collapse: collapse; /* Ensure cells have shared borders */
-    width: 100%;
-  }
-  
-  .table th, .table td {
-    text-align: center;
-    padding: 10px;
-    border: 1px solid black; /* Default border style for cells */
-    
-  }
-  
-  .table th{
-  
-    font-size: x-large;
-  }
-  
-  /* Specific border styles for table headers */
-  .table th:nth-child(1), .table td:nth-child(1) {
-    border-left: 2px solid #0c0c0c; /* Blue border for first column */
-  }
-  
-  .table th:nth-child(2), .table td:nth-child(2) {
-    border-left: 2px solid #070707; /* Green border for second column */
-  }
-  
-  .table th:nth-child(3), .table td:nth-child(3) {
-    border-left: 2px solid #040404; /* Red border for third column */
-  }
-  
-  .table th:nth-child(4), .table td:nth-child(4) {
-    border-left: 2px solid #101010; /* Yellow border for fourth column */
-  }
-  
-  .table th:last-child, .table td:last-child {
-    border-right: 2px solid #010101; /* Blue border for last column */
-  }
-  
+.card-header {
+  background-color: #ed8a11;
+  color: rgb(29, 28, 28);
+  font-family: "Merriweather", serif;
+  font-weight: bolder;
+  text-align: center;
+  font-size: 1em;
+  border-radius: 10px 10px 0 0; /* Rounded top corners */
+  padding: 1px; /* Adjust top and bottom padding */
+}
+
+.card-body {
+  padding: 10px; /* Adjust padding as needed */
+}
+
+.table {
+  margin-bottom: 0;
+  border-collapse: collapse; /* Ensure cells have shared borders */
+  width: 100%;
+}
+
+.table th, .table td {
+  text-align: center;
+  padding: 8px; /* Adjust padding as needed */
+  border: 1px solid black; /* Default border style for cells */
+}
+
+.table th {
+  font-size: large; /* Adjust font size as needed */
+}
+
+/* Specific border styles for table headers */
+.table th:nth-child(1),
+.table td:nth-child(1) {
+  border-left: 2px solid #0c0c0c; /* Blue border for first column */
+}
+
+.table th:nth-child(2),
+.table td:nth-child(2) {
+  border-left: 2px solid #070707; /* Green border for second column */
+}
+
+.table th:nth-child(3),
+.table td:nth-child(3) {
+  border-left: 2px solid #040404; /* Red border for third column */
+}
+
+.table th:nth-child(4),
+.table td:nth-child(4) {
+  border-left: 2px solid #101010; /* Yellow border for fourth column */
+}
+
+.table th:last-child,
+.table td:last-child {
+  border-right: 2px solid #010101; /* Blue border for last column */
+}
+
+html, body {
+  font-family: Arial, sans-serif;
+  background-color: #b1d6eb;
+  margin: 0;
+  padding: 0;
+}
