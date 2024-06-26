@@ -18,7 +18,6 @@ The Personal Expense Tracker and Financial Assistant is a comprehensive web appl
 
 3. **AI-Powered Financial Assistance**:
    - **Chatbot Integration**: Includes an AI chatbot capable of answering financial queries, providing insights on budgeting, saving tips, and investment strategies.
-   - **Expense Prediction**: Predicts future expenses using machine learning models, helping users plan their finances more effectively.
 
 4. **User Authentication and Security**:
    - **User Registration and Login**: Secure user registration and login functionality using encrypted passwords.
