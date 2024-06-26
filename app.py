@@ -1,12 +1,20 @@
+from tkinter import Image
 from flask import Flask, jsonify, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
+from networkx import is_path
 from numpy import extract
 from sklearn.linear_model import LinearRegression
 import pandas as pd
 import pickle
 from datetime import datetime
 from sqlalchemy import func, extract
+import os
+from werkzeug.utils import secure_filename
+import pytesseract
+from PIL import Image
+import re
+
 
 
 app = Flask(__name__)
@@ -19,6 +27,7 @@ login_manager.login_view = 'login'
 another_expenses = []
 expenses = []
 
+
 # Define Goal model
 class Goal(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -30,6 +39,72 @@ class Goal(db.Model):
 
     def __repr__(self):
         return f"Goal('{self.description}', '{self.amount}', '{self.target_date}')"
+    
+# Set up route for uploading bill
+UPLOAD_FOLDER = 'uploads'
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+# Update this path to the actual location of your Tesseract executable
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+
+
+# Function to check allowed file extension
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+def extract_amount(text):
+    # Regular expression to find amounts (assuming amounts are in the form of digits with optional decimal point)
+    amount_pattern = re.compile(r'\b\d+(?:\.\d{1,2})?\b')
+    matches = amount_pattern.findall(text)
+    # Return the first match as the amount (you may want to enhance this logic)
+    return float(matches[0]) if matches else 0.0
+
+
+@app.route('/upload', methods=['GET', 'POST'])
+@login_required
+def upload_bill():
+    if request.method == 'POST':
+        # Check if the post request has the file part
+        if 'billImage' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+        
+        file = request.files['billImage']
+
+        # If the user does not select a file, the browser submits an empty file without a filename
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            file.save(file_path)
+            
+            # Perform OCR on the uploaded image
+            text = pytesseract.image_to_string(Image.open(file_path))
+
+
+            # Process the bill image using AI (replace with your AI processing logic)
+            # Example: Extract data (description, amount, category, date) using AI
+
+            description = "Bill description"  # Replace with actual AI extracted data
+            amount = extract_amount(text)   # Replace with actual AI extracted data
+            category = "General"  # Replace with actual AI extracted data
+            date = datetime.now()  # Replace with actual AI extracted data
+
+            # Save extracted data to database
+            new_expense = Expense(description=description, amount=amount, category=category, date=date, user_id=current_user.id)
+            db.session.add(new_expense)
+            db.session.commit()
+
+            flash('Bill uploaded successfully!')
+            return redirect(url_for('view_expenses'))
+
+    return render_template('upload.html') 
 
 # Route for setting up goals
 @app.route('/set_goal', methods=['POST'])
@@ -108,6 +183,7 @@ def register():
 def index():
     return render_template('index.html')
 
+
 @app.route('/add_expense', methods=['GET', 'POST'])
 @login_required
 def add_expense():
@@ -120,6 +196,9 @@ def add_expense():
 
         
         category = request.form['category']
+        custom_category = request.form.get('customText')
+        if category == 'other' and custom_category:
+            category = custom_category
         expense = Expense(description=description, amount=amount, date=date, category=category, user_id=current_user.id)
         db.session.add(expense)
         db.session.commit()
@@ -245,7 +324,7 @@ def packet():
     
     
 
-@app.route('/predict_expense', methods=['GET', 'POST'])
+@app.route('/goal_setting', methods=['GET', 'POST'])
 @login_required
 def predict_expense():
     if request.method == 'POST':
@@ -256,6 +335,7 @@ def predict_expense():
         # Load the model
         with open('expense_predictor.pkl', 'rb') as f:
             model = pickle.load(f)
+            
 
         # Prepare the input data
         user_id = current_user.id
@@ -281,7 +361,7 @@ def predict_expense():
 
         return render_template('predict_expense.html', predicted_amount=predicted_amount, past_expenses=past_expenses, labels=labels, data=data)
 
-    return render_template('predict_expense.html')
+    return render_template('goal_setting.html')
 
 def train_model():
     expenses = Expense.query.all()
