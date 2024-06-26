@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monthly Expenses</title>
     <!-- Include your preferred charting library, e.g., Chart.js -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/report.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+    {% extends "navbar.html" %}
+    {% block content %}
     <div class="container">
         <h2>Monthly Expenses for {{ current_year }}</h2>
         <canvas id="expenseChart"></canvas>
     </div>
+   
 
     <script>
         const data = {{ data|tojson }};
@@ -51,5 +55,6 @@
             return Math.floor(Math.random() * 256);
         }
     </script>
+    {% endblock %}
 </body>
 </html>
