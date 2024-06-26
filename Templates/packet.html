@@ -7,6 +7,8 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/packet.css') }}">
 </head>
 <body>
+    {% extends "navbar.html" %}
+    {% block content %}
     <div class="container">
         <div class="card">
             <div class="card-header">
@@ -70,5 +72,6 @@
             </div>
         </div>
     </div>
+    {% endblock %}
 </body>
 </html>
