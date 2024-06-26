@@ -43,6 +43,9 @@ The Personal Expense Tracker and Financial Assistant is a comprehensive web appl
 
 The Personal Expense Tracker and Financial Assistant aims to empower users with tools to manage their finances efficiently, track expenses, set financial goals, and receive personalized financial advice through AI chatbots. It combines usability with advanced technologies to enhance financial management and planning capabilities.
 
+<h2>Project Work Flow Diagram</h2>
+<img src="screenshots\Project work flow.png">
+
 **Future Enhancements**
 
 - Integration with external financial APIs for real-time financial data.
