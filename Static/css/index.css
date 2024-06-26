@@ -3,24 +3,80 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #998e6e;
 }
 
-/* Center align the container */
-.container {
-    max-width: 600px; /* Adjust the width as per your preference */
-    margin: 20px auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-/* Heading styles */
-h2 {
+/* Sliding text styles */
+.sliding-text {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: rgb(108, 34, 34);
+    color: white;
     text-align: center;
-    color: #333; /* Dark text color */
+    padding: 10px 0;
+    position: relative;
+}
+
+.sliding-text p {
+    display: inline-block;
+    animation: slide 10s linear infinite;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+@keyframes slide {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Main container to hold image and menu side by side */
+.main-container {
+    display: flex;
+    height: calc(100vh - 40px); /* Adjust height minus sliding text height */
+}
+
+/* Image container styles */
+.image-container {
+    flex: 1;
+    background-color: #998e6e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    max-width: 600px; /* Adjust max-width as needed */
+    border-radius: 10px;
+}
+
+/* Menu container styles */
+.menu-container {
+    flex: 1;
+    background-color: #998e6e;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-container h1 {
+    font-family: "Merriweather", serif;
+    font-weight: bolder;
+    font-size: xx-large;
+    text-align: center;
     margin-bottom: 20px;
+}
+
+.menu-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: "Merriweather", serif;
+    font-weight: bolder;
 }
 
 /* Navigation styles */
@@ -28,22 +84,94 @@ nav ul {
     list-style-type: none;
     padding: 0;
     text-align: center;
+    width: 100%;
 }
 
 nav ul li {
-    display: inline-block;
-    margin-right: 10px;
+    margin: 10px 0;
 }
 
 nav ul li a {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 10px 20px;
     text-decoration: none;
-    color: #333; /* Dark text color */
+    color: white;
     border-radius: 4px;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out, transform 0.3s;
+    background-color: #007bff;
 }
 
 nav ul li a:hover {
-    background-color: #f0f0f0; /* Light gray background on hover */
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Icons in the buttons */
+nav ul li a .fa {
+    margin-right: 10px;
+}
+
+/* Button color variations */
+
+
+.btn-add-expense {
+    background-color: #ffc107;
+}
+
+.btn-view-expenses {
+    background-color: #17a2b8;
+}
+
+.btn-packet {
+    background-color: #dc3545;
+}
+
+.btn-report {
+    background-color: #6c757d;
+}
+
+.btn-goal-setting {
+    background-color: #28a745;
+}
+
+.btn-logout {
+    background-color: #1c1b1b;
+}
+
+/* Button hover effects */
+
+
+.btn-add-expense:hover {
+    background-color: #e0a800;
+}
+
+.btn-view-expenses:hover {
+    background-color: #138496;
+}
+
+.btn-packet:hover {
+    background-color: #c82333;
+}
+
+.btn-report:hover {
+    background-color: #5a6268;
+}
+
+.btn-goal-setting:hover {
+    background-color: #218838;
+}
+
+.btn-logout:hover {
+    background-color: #c82333;
+}
+
+
+/* Content text styles */
+.content {
+    margin-top: 20px;
+    text-align: center;
+    color: #333;
+    font-size: 1em;
 }
