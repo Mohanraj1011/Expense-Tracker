@@ -50,3 +50,40 @@ The Personal Expense Tracker and Financial Assistant aims to empower users with 
 - Mobile application development for broader accessibility and convenience.
 
 This project not only facilitates expense management but also educates users about financial planning and budgeting, promoting better financial habits and decision-making.
+
+
+<h1>Screenshots</h1>
+<h2>Register page</h2>
+<img src="screenshots\Register.png">
+
+<h2>Login page</h2>
+<img src="screenshots\Login.png">
+
+<h2>Home page</h2>
+<img src="screenshots\Home.png">
+
+<h2>Add Expense page</h2>
+<img src="screenshots\Add Expense.png">
+
+<h2>View Expense page</h2>
+<img src="screenshots\View Expenses.png">
+
+<h2>Packet page</h2>
+<img src="screenshots\Packet.png">
+
+<h2>Add Expense DB</h2>
+<img src="screenshots\Add Expense DB.png">
+
+<h2>Goal Setting DB</h2>
+<img src="screenshots\Goal setting DB.png">
+
+<h2>User id and Password DB</h2>
+<img src="screenshots\User id and Password DB.png">
+
+<h2>Report page</h2>
+<img src="screenshots\Report.png">
+
+<h2>Goal Setting page</h2>
+<img src="screenshots\Goal setting.png">
+
+
