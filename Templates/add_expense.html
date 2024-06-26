@@ -18,6 +18,7 @@
         }
     </style>
     
+    
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Bootstrap JS -->
@@ -53,6 +54,8 @@
     </script>
 </head>
 <body>
+    {% extends "navbar.html" %}
+    {% block content %}
     <div class="container">
         <h2>Add Expense</h2>
         <form method="POST">
@@ -88,5 +91,6 @@
             <button type="submit" class="btn btn-primary">Add Expense</button>
         </form>
     </div>
+    {% endblock %}
 </body>
 </html>
