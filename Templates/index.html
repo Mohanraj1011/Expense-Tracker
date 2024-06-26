@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
     <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <title>Expense Tracker</title>
     <style>
         .text-center {
             margin: 0;
@@ -19,20 +19,35 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Welcome, {{ current_user.username }}</h2>
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('add_expense') }}">Add Expense</a></li>
-                <li><a href="{{ url_for('view_expenses') }}">View Expenses</a></li>
-                <li><a href="{{ url_for('packet') }}">Packet</a></li>
-                <li><a href="{{ url_for('report') }}">Report</a></li>
-                <li><a href="{{ url_for('predict_expense') }}">Financial Goal Setting</a></li>
-                <li><a href="{{ url_for('logout') }}">Logout</a></li>
-            </ul>
-        </nav>
+    <div class="sliding-text">
+        <p>Welcome to the Expense Tracker! Manage your expenses effectively.</p>
     </div>
-    <img src="/Static/images/tech.jpg" alt="image" />
+    <div class="main-container">
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='images/expense-tracking.webp') }}" alt="Example Image">
+        </div>
+        <div class="menu-container">
+            <h1>Expense Tracker and Financial Assistant</h1>
+            <h2>Welcome, {{ current_user.username }}</h2>
+            <nav>
+                <ul>
+                    
+                    <li><a class="btn btn-add-expense" href="{{ url_for('add_expense') }}"><i class="fa fa-plus"></i> Add Expense</a></li>
+                    <li><a class="btn btn-view-expenses" href="{{ url_for('view_expenses') }}"><i class="fa fa-list"></i> View Expenses</a></li>
+                    <li><a class="btn btn-packet" href="{{ url_for('packet') }}"><i class="fa fa-briefcase"></i> Packet</a></li>
+                    <li><a class="btn btn-report" href="{{ url_for('report') }}"><i class="fa fa-chart-bar"></i> Report</a></li>
+                    <li><a class="btn btn-goal-setting" href="{{ url_for('predict_expense') }}"><i class="fa fa-bullseye"></i> Financial Goal Setting</a></li>
+                    <li><a class="btn btn-logout" href="{{ url_for('logout') }}"><i class="fa fa-sign-out-alt"></i> Logout</a></li>
+
+                    
+                </ul>
+            </nav>
+            <div class="content">
+                <p>Track your expenses efficiently and manage your finances with ease. Use the Expense Tracker to add, view, and categorize your expenses, and generate insightful reports.</p>
+            </div>
+        </div>
+    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <df-messenger
     intent="WELCOME"
     chat-title="AccountAssistant"
